@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class CollisionPrevention : MonoBehaviour
 public class CollisionPrevention : AITestCar
 {
 
@@ -26,6 +26,7 @@ public class CollisionPrevention : AITestCar
     // Start is called before the first frame update
     void Start()
     {
+
         Car= GetComponent<AITestCar>();
     }
 
@@ -64,7 +65,7 @@ public class CollisionPrevention : AITestCar
             TurnRight = false;
             TurnLeft = false;
         }
-        
+
         else
         {
             TurnLeft = false;
@@ -88,18 +89,10 @@ public class CollisionPrevention : AITestCar
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(LeftRayCast.transform.position, transform.forward * 5);
-        
+
         Gizmos.DrawRay(RightRayCast.transform.position, transform.forward * 5);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         HitDetection = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        HitDetection = false;
-    }
-
-}
